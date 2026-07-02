@@ -1,23 +1,23 @@
 package com.theresa.todo.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private boolean isDeleted;
+    public String name;
+    public String email;
+    public String password;
+    public boolean isDeleted;
+
 
     public String getEmail() {
         return email;
@@ -27,4 +27,7 @@ public class User {
         isDeleted = value;
     }
 
+    public String getPassword() {
+        return password;
+    }
 }
